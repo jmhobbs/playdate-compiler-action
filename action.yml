@@ -1,0 +1,35 @@
+name: 'Playdate SDK'
+description: 'Compile your Playdate applications'
+inputs:
+  path:
+    description: 'Path to your source code'
+    required: true
+    default: 'src'
+  output: 
+    description: 'Name of your output file (.pdx)'
+    required: false
+    default: 'app.pdx'
+  strip:
+    description: 'Strip debug symbols'
+    required: false
+    default: true
+  compress:
+    description: 'Compress output files'
+    required: false
+    default: true
+  package:
+    description: 'Create a .tar.gz of the output after compiling'
+    required: false
+    default: true
+outputs:
+  version:
+    description: 'Version of the compiler in use'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.path }}
+    - ${{ inputs.output }}
+    - ${{ inputs.strip }}
+    - ${{ inputs.compress }}
+    - ${{ inputs.package }}
