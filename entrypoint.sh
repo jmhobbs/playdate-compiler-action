@@ -1,8 +1,15 @@
 #!/usr/bin/env bash
 
+SDK_VERSION="${SDK_VERSION:=latest}"
+
 set -o errexit
 set -o nounset
 set -o pipefail
+
+echo "Downloading SDK Version: $SDK_VERSION"
+wget --quiet --output-document=/tmp/PlaydateSDK.tar.gz "https://download-keycdn.panic.com/playdate_sdk/Linux/PlaydateSDK-${SDK_VERSION}.tar.gz"
+tar -zxf /tmp/PlaydateSDK.tar.gz --directory /opt/
+mv /opt/PlaydateSDK-* /opt/playdate
 
 echo "::set-output name=version::$(/opt/playdate/bin/pdc --version)"
 
