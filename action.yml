@@ -1,5 +1,8 @@
 name: 'Playdate SDK'
 description: 'Compile your Playdate applications'
+branding:
+  icon: 'box'
+  color: 'yellow'
 inputs:
   path:
     description: 'Path to your source code'
