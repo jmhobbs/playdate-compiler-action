@@ -24,16 +24,20 @@ Compress output files. Default `true`.
 
 Create a `.tar.gz` of the `output` after compilation. Default `true`.
 
+## `version`
+
+What version of the SDK to use.  Default `"latest"`.
+
 ## Outputs
 
 ## `version`
 
-The version of `pdc` used.
+The version of `pdc` used. Helpful when using `"latest"` version.
 
 ## Example usage
 
 ```yaml
-uses: jmhobbs/playdate-compiler-action@v1
+uses: jmhobbs/playdate-compiler-action@v2
 with:
   path: 'src'
   output: 'party-parrot.pdx'
