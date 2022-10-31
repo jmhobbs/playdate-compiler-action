@@ -11,7 +11,7 @@ wget --quiet --output-document=/tmp/PlaydateSDK.tar.gz "https://download-keycdn.
 tar -zxf /tmp/PlaydateSDK.tar.gz --directory /opt/
 mv /opt/PlaydateSDK-* /opt/playdate
 
-echo "::set-output name=version::$(/opt/playdate/bin/pdc --version)"
+echo "name=version::$(/opt/playdate/bin/pdc --version)" >> "$GITHUB_OUTPUT"
 
 pdc_args=()
 
